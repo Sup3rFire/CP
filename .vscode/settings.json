@@ -1,0 +1,15 @@
+{
+  "files.associations": {
+    "*.embeddedhtml": "html",
+    "*.ttrm": "json",
+    "*.css": "css",
+    "system_error": "cpp",
+    "xlocale": "cpp",
+    "ostream": "cpp",
+    "xstring": "cpp",
+    "cstdlib": "cpp",
+    "limits": "cpp",
+    "utility": "cpp",
+    "iostream": "cpp"
+  }
+}
