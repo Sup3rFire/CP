@@ -6,6 +6,10 @@
     "iostream": "cpp",
     "ostream": "cpp",
     "*.tcc": "cpp",
-    "iomanip": "cpp"
+    "iomanip": "cpp",
+    "deque": "cpp",
+    "string": "cpp",
+    "vector": "cpp",
+    "chrono": "cpp"
   }
 }
