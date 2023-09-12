@@ -23,19 +23,9 @@ int main () {
   
   string s;
   cin >> s;
+  s[0] = toupper(s[0]);
 
-  char prev = 'z';
-  int cnt = 1;
-  for (auto i : s) {
-    if (prev == i) cnt++;
-    else cnt = 1;
-    prev = i;
-    if (cnt == 7) {
-      cout << "YES" << endl;
-      return 0;
-    }
-  }
-  cout << "NO" << endl;
-
+  cout << s << endl;
+  
   return 0;
 }
