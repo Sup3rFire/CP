@@ -23,19 +23,14 @@ int main () {
   
   string s;
   cin >> s;
-
-  char prev = 'z';
-  int cnt = 1;
+  string out;
   for (auto i : s) {
-    if (prev == i) cnt++;
-    else cnt = 1;
-    prev = i;
-    if (cnt == 7) {
-      cout << "YES" << endl;
-      return 0;
+    i = tolower(i);
+    if (!(i == 'a' || i == 'i' || i == 'u' || i == 'e' || i == 'o' || i == 'y')) {
+      out.push_back('.');
+      out.push_back(i);
     }
   }
-  cout << "NO" << endl;
-
+  cout << out << endl;
   return 0;
 }

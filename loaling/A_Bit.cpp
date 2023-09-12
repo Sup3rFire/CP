@@ -21,21 +21,16 @@ const ld PI = 3.141592653589793238462643383279502884197169399375105820974944;
 int main () {
   ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
   
-  string s;
-  cin >> s;
-
-  char prev = 'z';
-  int cnt = 1;
-  for (auto i : s) {
-    if (prev == i) cnt++;
-    else cnt = 1;
-    prev = i;
-    if (cnt == 7) {
-      cout << "YES" << endl;
-      return 0;
-    }
+  int n;
+  cin >> n;
+  int x = 0;
+  for (int i = 0; i < n; i++) {
+    string s;
+    cin >> s;
+    if (s[1] == '+') x++;
+    else x--;
   }
-  cout << "NO" << endl;
-
+  cout << x;
+  
   return 0;
 }

@@ -18,24 +18,17 @@ using namespace std;
 const ld EPS = 1e-9;
 const ld PI = 3.141592653589793238462643383279502884197169399375105820974944;
 
+int n;
+int brute(int x) {
+  if (x > n) return false;
+  return (n % x == 0) || brute(x*10+4) || brute(x*10+7);
+}
+
 int main () {
   ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
   
-  string s;
-  cin >> s;
-
-  char prev = 'z';
-  int cnt = 1;
-  for (auto i : s) {
-    if (prev == i) cnt++;
-    else cnt = 1;
-    prev = i;
-    if (cnt == 7) {
-      cout << "YES" << endl;
-      return 0;
-    }
-  }
-  cout << "NO" << endl;
+  cin >> n;
+  cout << (brute(4) || brute(7) ? "YES" : "NO") << endl;
 
   return 0;
 }

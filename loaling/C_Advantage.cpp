@@ -21,21 +21,34 @@ const ld PI = 3.141592653589793238462643383279502884197169399375105820974944;
 int main () {
   ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
   
-  string s;
-  cin >> s;
-
-  char prev = 'z';
-  int cnt = 1;
-  for (auto i : s) {
-    if (prev == i) cnt++;
-    else cnt = 1;
-    prev = i;
-    if (cnt == 7) {
-      cout << "YES" << endl;
-      return 0;
+  int t;
+  cin >> t;
+  for (int kagi = 0; kagi < t; kagi++) {
+    int n;
+    cin >> n;
+    int mv1 = -1, mv2 = -1;
+    int a[n];
+    for (int i = 0; i < n; i++) {
+      int s;
+      cin >> s;
+      if (s > mv1) {
+        mv2 = mv1;
+        mv1 = s;
+      } else if (s > mv2) {
+        mv2 = s;
+      }
+      a[i] = s;
     }
-  }
-  cout << "NO" << endl;
 
+    for (int i = 0; i < n; i++) {
+      if (a[i] == mv1) {
+        cout << a[i] - mv2 << " ";
+      } else {
+        cout << a[i] - mv1 << " ";
+      }
+    }
+    cout << endl;
+  }
+  
   return 0;
 }

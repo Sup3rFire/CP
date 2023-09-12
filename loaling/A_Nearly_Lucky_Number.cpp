@@ -23,19 +23,16 @@ int main () {
   
   string s;
   cin >> s;
-
-  char prev = 'z';
-  int cnt = 1;
+  int cnt = 0;
   for (auto i : s) {
-    if (prev == i) cnt++;
-    else cnt = 1;
-    prev = i;
-    if (cnt == 7) {
-      cout << "YES" << endl;
-      return 0;
-    }
+    if (i == '7' || i == '4') cnt++;
   }
-  cout << "NO" << endl;
+  
+  if (cnt == 4 || cnt == 7) {
+    cout << "YES" << endl;
+  } else {
+    cout << "NO" << endl;
+  }
 
   return 0;
 }
