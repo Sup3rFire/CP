@@ -22,27 +22,15 @@ const ld PI = 3.141592653589793238462643383279502884197169399375105820974944;
 int main() {
   ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
   
-  int n;
-  cin >> n;
-  int parity;
-  cin >> parity;
-  parity %= 2;
-  for (int i = 2; i <= n; i++) {
-    int x;
-    cin >> x;
-    if (x % 2 != parity) {
-      if (i == 2) {
-        int y;
-        cin >> y;
-        if (y % 2 != parity) {
-          cout << 1;
-          return 0;
-        }
-      }
-      cout << i;
-      return 0;
-    }
+  int loal, is, girl;
+  cin >> loal >> is >> girl;
+  for (int cute = 0; cute < loal; cute++) {
+    int rich;
+    cin >> rich;
+    if (rich == 2 && girl > 0) {girl--; continue;}
+    is--;
   }
+  cout << max(-is, 0);
   
   return 0;
 }

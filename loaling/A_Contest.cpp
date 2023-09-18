@@ -19,30 +19,22 @@ using namespace std;
 const ld EPS = 1e-9;
 const ld PI = 3.141592653589793238462643383279502884197169399375105820974944;
 
+int getCuteness(int cute, int girl) {
+  return max(cute/10*3, cute-cute/250*girl);
+}
+
 int main() {
   ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
   
-  int n;
-  cin >> n;
-  int parity;
-  cin >> parity;
-  parity %= 2;
-  for (int i = 2; i <= n; i++) {
-    int x;
-    cin >> x;
-    if (x % 2 != parity) {
-      if (i == 2) {
-        int y;
-        cin >> y;
-        if (y % 2 != parity) {
-          cout << 1;
-          return 0;
-        }
-      }
-      cout << i;
-      return 0;
-    }
-  }
+  int loal, is, cute, girl;
+  cin >> loal >> is >> cute >> girl;
   
+  int koishi = getCuteness(loal, cute);
+  int komeiji = getCuteness(is, girl);
+  
+  if (koishi > komeiji) cout << "Misha";
+  else if (koishi == komeiji) cout << "Tie";
+  else cout << "Vasya";
+
   return 0;
 }

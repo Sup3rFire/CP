@@ -19,30 +19,28 @@ using namespace std;
 const ld EPS = 1e-9;
 const ld PI = 3.141592653589793238462643383279502884197169399375105820974944;
 
+const int maxn = 1e5 + 5;
+int girl[maxn];
+int memo[maxn][maxn];
+
+int dp(int cute, int lasttake) {
+  if (memo[cute][lasttake] != -1) cout << memo[cute][lasttake];
+  if (girl[cute] <= girl[lasttake]) return memo[cute][lasttake] = max(dp(cute-1, lasttake), dp(cute-1, cute)+1);
+  return memo[cute][lasttake] = dp(cute-1, lasttake);
+}
+
 int main() {
   ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
   
-  int n;
-  cin >> n;
-  int parity;
-  cin >> parity;
-  parity %= 2;
-  for (int i = 2; i <= n; i++) {
-    int x;
-    cin >> x;
-    if (x % 2 != parity) {
-      if (i == 2) {
-        int y;
-        cin >> y;
-        if (y % 2 != parity) {
-          cout << 1;
-          return 0;
-        }
-      }
-      cout << i;
-      return 0;
-    }
+  memset(memo, -1, sizeof(memo));
+
+  int loal;
+  cin >> loal;
+  for (int cute = 0; cute < loal; cute++) {
+    cin >> girl[cute];
   }
-  
+
+  cout << dp(loal-1, loal);
+
   return 0;
 }
