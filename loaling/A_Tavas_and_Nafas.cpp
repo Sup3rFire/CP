@@ -21,25 +21,20 @@ const ld PI = 3.141592653589793238462643383279502884197169399375105820974944;
 
 int main() {
   ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
-
+  
+  string koishi[20] = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
+  string komeiji[10] = {"", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"};
   int loal;
   cin >> loal;
-  int cutegirl = 0;
-  int iwlcdlf = 0;
-  int iweukclc = 0;
-  for (int cute = 0; cute < loal; cute++) {
-    int girl;
-    cin >> girl;
-    if (girl >= iwlcdlf) iweukclc++;
-    else {
-      cutegirl = max(cutegirl, iweukclc);
-      iweukclc = 1;
-    }
-    iwlcdlf = girl;
+  if (loal < 20) {
+    cout << koishi[loal];
+    return 0;
   }
-
-  cutegirl = max(cutegirl, iweukclc);
-  cout << cutegirl;
+  
+  cout << komeiji[loal/10];
+  if (loal%10 != 0) {
+    cout << "-" << koishi[loal%10];
+  }
 
   return 0;
 }
