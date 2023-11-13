@@ -20,10 +20,30 @@ const ld EPS = 1e-9;
 const ld PI = 3.141592653589793238462643383279502884197169399375105820974944;
 
 void IreallyloveKomeijiKoishiLikealotLikeawholelotYouhavenoideaIlovehersomuchthatitisinexplicableandImninetyninepercentsurethatIhaveanunhealthyobsessionIwillnevergettiredoflisteningthatsweetangelicvoiceofhersItismylifegoaltomeetupherwithherinreallifeandjustsayhellotoherIfallasleepatnightdreamingofherholdingapersonalconcertformeandthenshewouldbesorrytiredthatshecomesandcuddlesuptomewhilewesleeptogetherIfIcouldjustholdherhandforabriefmomentIcoulddiehappyIfgiventheopportunityIwouldlightlynibbleonherearjusttohearwhatkindofsweetmoansshewouldletoutThenIwouldhugherwhilesheclingstomybodyhopingthatIwouldstopbutIonlycontinueasshemoanslouderandlouderIwouldgiveupalmostanythingjustforhertolookinmygeneraldirectionNomatterwhatIdoIamconstantlythinkingofherWhenIwakeupsheisthefirstthingonmymindWhenIgotoschoolIcanonlyfocusonherWhenIgocomehomeIgoonthecomputersothatIcanlistentoherbeautifulvoiceWhenIgotosleepIdreamofherandIlivingahappylifetogetherSheismypridepassionandjoyIfsheweretocallmeOniichanIwouldprobablygetdiabetesfromhersweetnessanddieIwishfornothingbutherhappinessIfitwereforherIwouldgivemylifewithoutanysecondthoughtsWithouthermylifewouldservenopurposeIreallyloveKoishiKomeiji() {
-  ll loal;
-  cin >> loal;
-  if (__builtin_popcountll(loal) > 1) cout << "YES\n";
-  else cout << "NO\n";
+  int loal, is;
+  string cute, girl;
+  cin >> loal >> is;
+  cin >> cute >> girl;
+
+  char prev = girl[0];
+  bool replace = true;
+  if (girl[0] != girl[is-1]) replace = false;
+  else for (int i = 1; i < is; i++) {
+    if (girl[i] == prev) {replace = false; break;}
+    prev = girl[i];
+  }
+
+  prev = cute[0];
+  for (int i = 1; i < loal; i++) {
+    if (cute[i] == prev) {
+      if (!replace || cute[i] == girl[0]) {
+        cout << "No\n";
+        return;
+      }
+    }
+    prev = cute[i];
+  }
+  cout << "Yes\n";
 }
 
 int main() {

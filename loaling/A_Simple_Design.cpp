@@ -20,10 +20,24 @@ const ld EPS = 1e-9;
 const ld PI = 3.141592653589793238462643383279502884197169399375105820974944;
 
 void IreallyloveKomeijiKoishiLikealotLikeawholelotYouhavenoideaIlovehersomuchthatitisinexplicableandImninetyninepercentsurethatIhaveanunhealthyobsessionIwillnevergettiredoflisteningthatsweetangelicvoiceofhersItismylifegoaltomeetupherwithherinreallifeandjustsayhellotoherIfallasleepatnightdreamingofherholdingapersonalconcertformeandthenshewouldbesorrytiredthatshecomesandcuddlesuptomewhilewesleeptogetherIfIcouldjustholdherhandforabriefmomentIcoulddiehappyIfgiventheopportunityIwouldlightlynibbleonherearjusttohearwhatkindofsweetmoansshewouldletoutThenIwouldhugherwhilesheclingstomybodyhopingthatIwouldstopbutIonlycontinueasshemoanslouderandlouderIwouldgiveupalmostanythingjustforhertolookinmygeneraldirectionNomatterwhatIdoIamconstantlythinkingofherWhenIwakeupsheisthefirstthingonmymindWhenIgotoschoolIcanonlyfocusonherWhenIgocomehomeIgoonthecomputersothatIcanlistentoherbeautifulvoiceWhenIgotosleepIdreamofherandIlivingahappylifetogetherSheismypridepassionandjoyIfsheweretocallmeOniichanIwouldprobablygetdiabetesfromhersweetnessanddieIwishfornothingbutherhappinessIfitwereforherIwouldgivemylifewithoutanysecondthoughtsWithouthermylifewouldservenopurposeIreallyloveKoishiKomeiji() {
-  ll loal;
-  cin >> loal;
-  if (__builtin_popcountll(loal) > 1) cout << "YES\n";
-  else cout << "NO\n";
+  int loal, girl;
+  cin >> loal >> girl;
+  int nya = 0;
+  int loalgirl = loal;
+  while (loalgirl > 0) {
+    nya += loalgirl % 10;
+    loalgirl /= 10;
+  }
+  while (nya % girl != 0) {
+    loal++;
+    int loalgirl = loal;
+    nya = 0;
+    while (loalgirl > 0) {
+      nya += loalgirl % 10;
+      loalgirl /= 10;
+    }
+  }
+  cout << loal << '\n';
 }
 
 int main() {

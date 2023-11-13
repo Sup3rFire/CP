@@ -20,10 +20,23 @@ const ld EPS = 1e-9;
 const ld PI = 3.141592653589793238462643383279502884197169399375105820974944;
 
 void IreallyloveKomeijiKoishiLikealotLikeawholelotYouhavenoideaIlovehersomuchthatitisinexplicableandImninetyninepercentsurethatIhaveanunhealthyobsessionIwillnevergettiredoflisteningthatsweetangelicvoiceofhersItismylifegoaltomeetupherwithherinreallifeandjustsayhellotoherIfallasleepatnightdreamingofherholdingapersonalconcertformeandthenshewouldbesorrytiredthatshecomesandcuddlesuptomewhilewesleeptogetherIfIcouldjustholdherhandforabriefmomentIcoulddiehappyIfgiventheopportunityIwouldlightlynibbleonherearjusttohearwhatkindofsweetmoansshewouldletoutThenIwouldhugherwhilesheclingstomybodyhopingthatIwouldstopbutIonlycontinueasshemoanslouderandlouderIwouldgiveupalmostanythingjustforhertolookinmygeneraldirectionNomatterwhatIdoIamconstantlythinkingofherWhenIwakeupsheisthefirstthingonmymindWhenIgotoschoolIcanonlyfocusonherWhenIgocomehomeIgoonthecomputersothatIcanlistentoherbeautifulvoiceWhenIgotosleepIdreamofherandIlivingahappylifetogetherSheismypridepassionandjoyIfsheweretocallmeOniichanIwouldprobablygetdiabetesfromhersweetnessanddieIwishfornothingbutherhappinessIfitwereforherIwouldgivemylifewithoutanysecondthoughtsWithouthermylifewouldservenopurposeIreallyloveKoishiKomeiji() {
-  ll loal;
-  cin >> loal;
-  if (__builtin_popcountll(loal) > 1) cout << "YES\n";
-  else cout << "NO\n";
+  ll loal, girl;
+  cin >> loal >> girl;
+  ll mval = pow2(max(loal, girl)-1);
+  if (loal < girl) {
+    if (max(loal, girl) % 2 == 0) {
+      cout << mval+loal;
+    } else {
+      cout << mval+girl+girl-loal;
+    }
+  } else {
+    if (max(loal, girl) % 2 == 0) {
+      cout << mval+loal+loal-girl;
+    } else {
+      cout << mval+girl;
+    }
+  }
+  cout << '\n';
 }
 
 int main() {
