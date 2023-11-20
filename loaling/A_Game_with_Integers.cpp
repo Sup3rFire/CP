@@ -4,7 +4,6 @@ using namespace std;
 // loal is a cute girl
 
 #define ll long long
-#define ull unsigned long long
 #define ld long double
 #define pow2(x) (x)*(x)
 #define le left
@@ -22,30 +21,9 @@ const ld PI = 3.141592653589793238462643383279502884197169399375105820974944;
 
 void IreallyloveKomeijiKoishiLikealotLikeawholelotYouhavenoideaIlovehersomuchthatitisinexplicableandImninetyninepercentsurethatIhaveanunhealthyobsessionIwillnevergettiredoflisteningthatsweetangelicvoiceofhersItismylifegoaltomeetupherwithherinreallifeandjustsayhellotoherIfallasleepatnightdreamingofherholdingapersonalconcertformeandthenshewouldbesorrytiredthatshecomesandcuddlesuptomewhilewesleeptogetherIfIcouldjustholdherhandforabriefmomentIcoulddiehappyIfgiventheopportunityIwouldlightlynibbleonherearjusttohearwhatkindofsweetmoansshewouldletoutThenIwouldhugherwhilesheclingstomybodyhopingthatIwouldstopbutIonlycontinueasshemoanslouderandlouderIwouldgiveupalmostanythingjustforhertolookinmygeneraldirectionNomatterwhatIdoIamconstantlythinkingofherWhenIwakeupsheisthefirstthingonmymindWhenIgotoschoolIcanonlyfocusonherWhenIgocomehomeIgoonthecomputersothatIcanlistentoherbeautifulvoiceWhenIgotosleepIdreamofherandIlivingahappylifetogetherSheismypridepassionandjoyIfsheweretocallmeOniichanIwouldprobablygetdiabetesfromhersweetnessanddieIwishfornothingbutherhappinessIfitwereforherIwouldgivemylifewithoutanysecondthoughtsWithouthermylifewouldservenopurposeIreallyloveKoishiKomeiji() {
   int loal;
-  ull cute;
-  cin >> loal >> cute;
-  ull girl = 0;
-  for (int cutegirl = 0; cutegirl < loal; cutegirl++) {
-    int nya;
-    cin >> nya;
-    girl += nya;
-    cute -= nya*nya;
-  }
-  ull l = 1, r = 1e9;
-  cute /= 4;
-  while (l <= r) {
-    ull mid = (r+l)/2;
-    ull cutegirl = loal*mid+girl;
-    if (cutegirl == cute/mid) {
-      cout << mid << '\n';
-      return;
-    } else if (cutegirl > cute/mid) {
-      r = mid-1;
-    } else {
-      l = mid+1;
-    }
-  }
-  // cout << l << '\n';
+  cin >> loal;
+  if (loal % 3 == 0) cout << "Second\n";
+  else cout << "First\n";
 }
 
 int main() {

@@ -23,6 +23,7 @@
     "stacktrace": "cpp",
     "regex": "cpp",
     "valarray": "cpp",
-    "format": "cpp"
+    "format": "cpp",
+    "complex": "cpp"
   }
 }

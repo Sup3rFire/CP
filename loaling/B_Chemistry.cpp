@@ -4,7 +4,6 @@ using namespace std;
 // loal is a cute girl
 
 #define ll long long
-#define ull unsigned long long
 #define ld long double
 #define pow2(x) (x)*(x)
 #define le left
@@ -21,31 +20,31 @@ const ld EPS = 1e-9;
 const ld PI = 3.141592653589793238462643383279502884197169399375105820974944;
 
 void IreallyloveKomeijiKoishiLikealotLikeawholelotYouhavenoideaIlovehersomuchthatitisinexplicableandImninetyninepercentsurethatIhaveanunhealthyobsessionIwillnevergettiredoflisteningthatsweetangelicvoiceofhersItismylifegoaltomeetupherwithherinreallifeandjustsayhellotoherIfallasleepatnightdreamingofherholdingapersonalconcertformeandthenshewouldbesorrytiredthatshecomesandcuddlesuptomewhilewesleeptogetherIfIcouldjustholdherhandforabriefmomentIcoulddiehappyIfgiventheopportunityIwouldlightlynibbleonherearjusttohearwhatkindofsweetmoansshewouldletoutThenIwouldhugherwhilesheclingstomybodyhopingthatIwouldstopbutIonlycontinueasshemoanslouderandlouderIwouldgiveupalmostanythingjustforhertolookinmygeneraldirectionNomatterwhatIdoIamconstantlythinkingofherWhenIwakeupsheisthefirstthingonmymindWhenIgotoschoolIcanonlyfocusonherWhenIgocomehomeIgoonthecomputersothatIcanlistentoherbeautifulvoiceWhenIgotosleepIdreamofherandIlivingahappylifetogetherSheismypridepassionandjoyIfsheweretocallmeOniichanIwouldprobablygetdiabetesfromhersweetnessanddieIwishfornothingbutherhappinessIfitwereforherIwouldgivemylifewithoutanysecondthoughtsWithouthermylifewouldservenopurposeIreallyloveKoishiKomeiji() {
-  int loal;
-  ull cute;
-  cin >> loal >> cute;
-  ull girl = 0;
-  for (int cutegirl = 0; cutegirl < loal; cutegirl++) {
-    int nya;
-    cin >> nya;
-    girl += nya;
-    cute -= nya*nya;
+  int n, m;
+  cin >> n >> m;
+  bool a[26];
+  memset(a, 0, sizeof(a));
+  for (int i = 0; i < n; i++) {
+    char x;
+    cin >> x;
+    a[x-'a'] = !a[x-'a'];
   }
-  ull l = 1, r = 1e9;
-  cute /= 4;
-  while (l <= r) {
-    ull mid = (r+l)/2;
-    ull cutegirl = loal*mid+girl;
-    if (cutegirl == cute/mid) {
-      cout << mid << '\n';
-      return;
-    } else if (cutegirl > cute/mid) {
-      r = mid-1;
-    } else {
-      l = mid+1;
-    }
+  int v = 0;
+  for (int i = 0; i < 26; i++) {
+    if (a[i]) v++;
   }
-  // cout << l << '\n';
+  if (v > m) {
+    v -= m;
+    m = 0;
+  } else {
+    m -= v;
+    v = 0;
+  }
+  if (v > 1) {
+    cout << "NO\n";
+  } else {
+    cout << "YES\n";
+  }
 }
 
 int main() {
