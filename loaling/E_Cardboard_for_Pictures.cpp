@@ -29,18 +29,23 @@ void IreallyloveKomeijiKoishiLikealotLikeawholelotYouhavenoideaIlovehersomuchtha
     int nya;
     cin >> nya;
     girl += nya;
+    cute -= nya*nya;
   }
-  ull l = 1, r = 2e9;
-  while (l < r) {
+  ull l = 1, r = 1e9;
+  cute /= 4;
+  while (l <= r) {
     ull mid = (r+l)/2;
-    ull cutegirl = mid*mid*loal*4+mid*girl*4;
-    if (cute <= cutegirl) {
+    ull cutegirl = loal*mid+girl;
+    if (cutegirl == cute/mid) {
+      cout << mid << '\n';
+      return;
+    } else if (cutegirl > cute/mid) {
       r = mid-1;
     } else {
       l = mid+1;
     }
   }
-  cout << l << '\n';
+  // cout << l << '\n';
 }
 
 int main() {

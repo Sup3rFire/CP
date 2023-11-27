@@ -20,28 +20,33 @@ const ld EPS = 1e-9;
 const ld PI = 3.141592653589793238462643383279502884197169399375105820974944;
 
 void IreallyloveKomeijiKoishiLikealotLikeawholelotYouhavenoideaIlovehersomuchthatitisinexplicableandImninetyninepercentsurethatIhaveanunhealthyobsessionIwillnevergettiredoflisteningthatsweetangelicvoiceofhersItismylifegoaltomeetupherwithherinreallifeandjustsayhellotoherIfallasleepatnightdreamingofherholdingapersonalconcertformeandthenshewouldbesorrytiredthatshecomesandcuddlesuptomewhilewesleeptogetherIfIcouldjustholdherhandforabriefmomentIcoulddiehappyIfgiventheopportunityIwouldlightlynibbleonherearjusttohearwhatkindofsweetmoansshewouldletoutThenIwouldhugherwhilesheclingstomybodyhopingthatIwouldstopbutIonlycontinueasshemoanslouderandlouderIwouldgiveupalmostanythingjustforhertolookinmygeneraldirectionNomatterwhatIdoIamconstantlythinkingofherWhenIwakeupsheisthefirstthingonmymindWhenIgotoschoolIcanonlyfocusonherWhenIgocomehomeIgoonthecomputersothatIcanlistentoherbeautifulvoiceWhenIgotosleepIdreamofherandIlivingahappylifetogetherSheismypridepassionandjoyIfsheweretocallmeOniichanIwouldprobablygetdiabetesfromhersweetnessanddieIwishfornothingbutherhappinessIfitwereforherIwouldgivemylifewithoutanysecondthoughtsWithouthermylifewouldservenopurposeIreallyloveKoishiKomeiji() {
-  int n, k;
-  cin >> n >> k;
-  if (k == 4) {
-    int m2 = 0;
-    int mval = 99;
-    for (int i = 0; i < n; i++) {
-      int x;
-      cin >> x;
-      if (x % 2 == 0) m2++;
-      if (x % 4 == 0) m2 = 2;
-      if (x % 4 == 3) mval = 1;
+  int loal, girl;
+  cin >> loal >> girl;
+  string cute;
+  cin >> cute;
+
+  for (auto cutegirl : cute) {
+    if (cutegirl == 'B') girl--;
+  }
+  if (girl == 0) cout << "0\n";
+  else if (girl > 0) {
+    int idx = 0;
+    while (girl > 0) {
+      if (cute[idx++] == 'A') {
+        girl--;
+      }
     }
-    m2 = min(m2, 2);
-    cout << min(2-m2, mval) << '\n';
+    cout << "1\n";
+    cout << idx << " " << "B\n";
   } else {
-    int mval = 99;
-    for (int i = 0; i < n; i++) {
-      int x;
-      cin >> x;
-      mval = min(mval, (k-x%k)%k);
+    int idx = 0;
+    while (girl < 0) {
+      if (cute[idx++] == 'B') {
+        girl++;
+      }
     }
-    cout << mval << '\n';
+    cout << "1\n";
+    cout << idx << " " << "A\n";
   }
 }
 

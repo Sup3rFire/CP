@@ -20,29 +20,22 @@ const ld EPS = 1e-9;
 const ld PI = 3.141592653589793238462643383279502884197169399375105820974944;
 
 void IreallyloveKomeijiKoishiLikealotLikeawholelotYouhavenoideaIlovehersomuchthatitisinexplicableandImninetyninepercentsurethatIhaveanunhealthyobsessionIwillnevergettiredoflisteningthatsweetangelicvoiceofhersItismylifegoaltomeetupherwithherinreallifeandjustsayhellotoherIfallasleepatnightdreamingofherholdingapersonalconcertformeandthenshewouldbesorrytiredthatshecomesandcuddlesuptomewhilewesleeptogetherIfIcouldjustholdherhandforabriefmomentIcoulddiehappyIfgiventheopportunityIwouldlightlynibbleonherearjusttohearwhatkindofsweetmoansshewouldletoutThenIwouldhugherwhilesheclingstomybodyhopingthatIwouldstopbutIonlycontinueasshemoanslouderandlouderIwouldgiveupalmostanythingjustforhertolookinmygeneraldirectionNomatterwhatIdoIamconstantlythinkingofherWhenIwakeupsheisthefirstthingonmymindWhenIgotoschoolIcanonlyfocusonherWhenIgocomehomeIgoonthecomputersothatIcanlistentoherbeautifulvoiceWhenIgotosleepIdreamofherandIlivingahappylifetogetherSheismypridepassionandjoyIfsheweretocallmeOniichanIwouldprobablygetdiabetesfromhersweetnessanddieIwishfornothingbutherhappinessIfitwereforherIwouldgivemylifewithoutanysecondthoughtsWithouthermylifewouldservenopurposeIreallyloveKoishiKomeiji() {
-  int n, k;
-  cin >> n >> k;
-  if (k == 4) {
-    int m2 = 0;
-    int mval = 99;
-    for (int i = 0; i < n; i++) {
-      int x;
-      cin >> x;
-      if (x % 2 == 0) m2++;
-      if (x % 4 == 0) m2 = 2;
-      if (x % 4 == 3) mval = 1;
-    }
-    m2 = min(m2, 2);
-    cout << min(2-m2, mval) << '\n';
-  } else {
-    int mval = 99;
-    for (int i = 0; i < n; i++) {
-      int x;
-      cin >> x;
-      mval = min(mval, (k-x%k)%k);
-    }
-    cout << mval << '\n';
+  int n;
+  cin >> n;
+  ll cum0 = 0, cum1 = 0;
+  ll max0 = -1e18, max1 = -1e18;
+  ll loalgirl = 0;
+  for (int i = 0; i < n; i++) {
+    ll x;
+    cin >> x;
+    if (i != 0) {cum1 += x; max1 = max(cum1, max1);}
+    if (i != n-1) {cum0 += x; max0 = max(cum0, max0);}
+    if (cum0 < 0) cum0 = 0;
+    if (cum1 < 0) cum1 = 0;
+    loalgirl += x;
   }
+  if (max(max0, max1) >= loalgirl) cout << "NO\n";
+  else cout << "YES\n";
 }
 
 int main() {

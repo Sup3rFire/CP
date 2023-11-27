@@ -20,29 +20,46 @@ const ld EPS = 1e-9;
 const ld PI = 3.141592653589793238462643383279502884197169399375105820974944;
 
 void IreallyloveKomeijiKoishiLikealotLikeawholelotYouhavenoideaIlovehersomuchthatitisinexplicableandImninetyninepercentsurethatIhaveanunhealthyobsessionIwillnevergettiredoflisteningthatsweetangelicvoiceofhersItismylifegoaltomeetupherwithherinreallifeandjustsayhellotoherIfallasleepatnightdreamingofherholdingapersonalconcertformeandthenshewouldbesorrytiredthatshecomesandcuddlesuptomewhilewesleeptogetherIfIcouldjustholdherhandforabriefmomentIcoulddiehappyIfgiventheopportunityIwouldlightlynibbleonherearjusttohearwhatkindofsweetmoansshewouldletoutThenIwouldhugherwhilesheclingstomybodyhopingthatIwouldstopbutIonlycontinueasshemoanslouderandlouderIwouldgiveupalmostanythingjustforhertolookinmygeneraldirectionNomatterwhatIdoIamconstantlythinkingofherWhenIwakeupsheisthefirstthingonmymindWhenIgotoschoolIcanonlyfocusonherWhenIgocomehomeIgoonthecomputersothatIcanlistentoherbeautifulvoiceWhenIgotosleepIdreamofherandIlivingahappylifetogetherSheismypridepassionandjoyIfsheweretocallmeOniichanIwouldprobablygetdiabetesfromhersweetnessanddieIwishfornothingbutherhappinessIfitwereforherIwouldgivemylifewithoutanysecondthoughtsWithouthermylifewouldservenopurposeIreallyloveKoishiKomeiji() {
-  int n, k;
-  cin >> n >> k;
-  if (k == 4) {
-    int m2 = 0;
-    int mval = 99;
-    for (int i = 0; i < n; i++) {
-      int x;
-      cin >> x;
-      if (x % 2 == 0) m2++;
-      if (x % 4 == 0) m2 = 2;
-      if (x % 4 == 3) mval = 1;
-    }
-    m2 = min(m2, 2);
-    cout << min(2-m2, mval) << '\n';
-  } else {
-    int mval = 99;
-    for (int i = 0; i < n; i++) {
-      int x;
-      cin >> x;
-      mval = min(mval, (k-x%k)%k);
-    }
-    cout << mval << '\n';
+  int n;
+  cin >> n;
+  int a[n];
+  map<int, vector<pair<int, bool>>> type;
+  for (int i = 0; i < n; i++) {
+    int l, r;
+    cin >> l >> r;
+    a[i] = r;
+    type[l].pb({i, false});
+    type[r].pb({i, true});
   }
+  set<int> pending;
+  int lastone = 0;
+  priority_queue<pii, vector<pii>, greater<pii>> pq;
+  for (auto [curridx, data] : type) {
+    int removesavailable = curridx-lastone;
+    lastone = curridx;
+    while (removesavailable-- > 0) {
+      if (!pq.empty()) {
+        pending.erase(pq.top().se);
+        pq.pop();
+      } else break;
+    }
+    for (auto [idx, type] : data) {
+      if (type) {
+        if (pending.count(idx)) {
+          if (lastone++ != curridx) {
+            cout << "No\n";
+            return;
+          } else {
+            pq.pop();
+          }
+        }
+      } else {
+        pq.push({a[idx], idx});
+        pending.insert(idx);
+      }
+    }
+  }
+  cout << "Yes\n";
 }
 
 int main() {

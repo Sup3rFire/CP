@@ -20,29 +20,16 @@ const ld EPS = 1e-9;
 const ld PI = 3.141592653589793238462643383279502884197169399375105820974944;
 
 void IreallyloveKomeijiKoishiLikealotLikeawholelotYouhavenoideaIlovehersomuchthatitisinexplicableandImninetyninepercentsurethatIhaveanunhealthyobsessionIwillnevergettiredoflisteningthatsweetangelicvoiceofhersItismylifegoaltomeetupherwithherinreallifeandjustsayhellotoherIfallasleepatnightdreamingofherholdingapersonalconcertformeandthenshewouldbesorrytiredthatshecomesandcuddlesuptomewhilewesleeptogetherIfIcouldjustholdherhandforabriefmomentIcoulddiehappyIfgiventheopportunityIwouldlightlynibbleonherearjusttohearwhatkindofsweetmoansshewouldletoutThenIwouldhugherwhilesheclingstomybodyhopingthatIwouldstopbutIonlycontinueasshemoanslouderandlouderIwouldgiveupalmostanythingjustforhertolookinmygeneraldirectionNomatterwhatIdoIamconstantlythinkingofherWhenIwakeupsheisthefirstthingonmymindWhenIgotoschoolIcanonlyfocusonherWhenIgocomehomeIgoonthecomputersothatIcanlistentoherbeautifulvoiceWhenIgotosleepIdreamofherandIlivingahappylifetogetherSheismypridepassionandjoyIfsheweretocallmeOniichanIwouldprobablygetdiabetesfromhersweetnessanddieIwishfornothingbutherhappinessIfitwereforherIwouldgivemylifewithoutanysecondthoughtsWithouthermylifewouldservenopurposeIreallyloveKoishiKomeiji() {
-  int n, k;
-  cin >> n >> k;
-  if (k == 4) {
-    int m2 = 0;
-    int mval = 99;
-    for (int i = 0; i < n; i++) {
-      int x;
-      cin >> x;
-      if (x % 2 == 0) m2++;
-      if (x % 4 == 0) m2 = 2;
-      if (x % 4 == 3) mval = 1;
-    }
-    m2 = min(m2, 2);
-    cout << min(2-m2, mval) << '\n';
-  } else {
-    int mval = 99;
-    for (int i = 0; i < n; i++) {
-      int x;
-      cin >> x;
-      mval = min(mval, (k-x%k)%k);
-    }
-    cout << mval << '\n';
+  int loal;
+  cin >> loal;
+  int girl = 0;
+  for (int cute = 0; cute < loal; cute++) {
+    int cutegirl;
+    cin >> cutegirl;
+    girl += cutegirl % 2;
   }
+
+  cout << (girl % 2 == 0 ? "YES" : "NO") << '\n';
 }
 
 int main() {
