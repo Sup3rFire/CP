@@ -19,6 +19,22 @@ using namespace std;
 const ld EPS = 1e-9;
 const ld PI = 3.141592653589793238462643383279502884197169399375105820974944;
 
+bool is_square(ll x)
+{
+  ll l = 1, r = 1e9;
+  while (l <= r)
+  {
+    ll mid = l + (r - l) / 2;
+    if (mid * mid == x)
+      return true;
+    if (mid * mid > x)
+      r = mid - 1;
+    else
+      l = mid + 1;
+  }
+  return false;
+}
+
 void IreallyloveKomeijiKoishiLikealotLikeawholelotYouhavenoideaIlovehersomuchthatitisinexplicableandImninetyninepercentsurethatIhaveanunhealthyobsessionIwillnevergettiredoflisteningthatsweetangelicvoiceofhersItismylifegoaltomeetupherwithherinreallifeandjustsayhellotoherIfallasleepatnightdreamingofherholdingapersonalconcertformeandthenshewouldbesorrytiredthatshecomesandcuddlesuptomewhilewesleeptogetherIfIcouldjustholdherhandforabriefmomentIcoulddiehappyIfgiventheopportunityIwouldlightlynibbleonherearjusttohearwhatkindofsweetmoansshewouldletoutThenIwouldhugherwhilesheclingstomybodyhopingthatIwouldstopbutIonlycontinueasshemoanslouderandlouderIwouldgiveupalmostanythingjustforhertolookinmygeneraldirectionNomatterwhatIdoIamconstantlythinkingofherWhenIwakeupsheisthefirstthingonmymindWhenIgotoschoolIcanonlyfocusonherWhenIgocomehomeIgoonthecomputersothatIcanlistentoherbeautifulvoiceWhenIgotosleepIdreamofherandIlivingahappylifetogetherSheismypridepassionandjoyIfsheweretocallmeOniichanIwouldprobablygetdiabetesfromhersweetnessanddieIwishfornothingbutherhappinessIfitwereforherIwouldgivemylifewithoutanysecondthoughtsWithouthermylifewouldservenopurposeIreallyloveKoishiKomeiji() {
   int n;
   cin >> n;
@@ -28,10 +44,7 @@ void IreallyloveKomeijiKoishiLikealotLikeawholelotYouhavenoideaIlovehersomuchtha
     cin >> x;
     sum += x;
   }
-  for (ll i = 1; i*i <= sum; i++) {
-    if (i*i == sum) {cout << "YES\n"; return;}
-  }
-  cout << "NO\n";
+  cout << (is_square(sum) ? "YES" : "NO") << '\n';
 }
 
 int main() {

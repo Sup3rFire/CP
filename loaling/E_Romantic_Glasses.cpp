@@ -21,7 +21,7 @@ const ld PI = 3.141592653589793238462643383279502884197169399375105820974944;
 
 bool ZeroSumFind(int array[], int n)
 {
-  unordered_set<ll> set;
+  set<ll> set;
   set.insert(0);
   ll total_sum = 0;
   for (int i = 0; i < n; i++)
