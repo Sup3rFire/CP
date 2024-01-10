@@ -19,13 +19,29 @@ using namespace std;
 const ld EPS = 1e-9;
 const ld PI = 3.141592653589793238462643383279502884197169399375105820974944;
 
+const int maxn = 3e5+5;
+pii girl[maxn];
+string cute;
+
+int bfs(int x) {
+  int ret = 1e9;
+  if (girl[x].fi != 0) {
+    ret = min(ret, bfs(girl[x].fi)+(cute[x-1]!='L'));
+  }
+  if (girl[x].se != 0) {
+    ret = min(ret, bfs(girl[x].se)+(cute[x-1]!='R'));
+  }
+  if (ret == 1e9) return 0;
+  return ret;
+}
+
 void IreallyloveKomeijiKoishiLikealotLikeawholelotYouhavenoideaIlovehersomuchthatitisinexplicableandImninetyninepercentsurethatIhaveanunhealthyobsessionIwillnevergettiredoflisteningthatsweetangelicvoiceofhersItismylifegoaltomeetupherwithherinreallifeandjustsayhellotoherIfallasleepatnightdreamingofherholdingapersonalconcertformeandthenshewouldbesorrytiredthatshecomesandcuddlesuptomewhilewesleeptogetherIfIcouldjustholdherhandforabriefmomentIcoulddiehappyIfgiventheopportunityIwouldlightlynibbleonherearjusttohearwhatkindofsweetmoansshewouldletoutThenIwouldhugherwhilesheclingstomybodyhopingthatIwouldstopbutIonlycontinueasshemoanslouderandlouderIwouldgiveupalmostanythingjustforhertolookinmygeneraldirectionNomatterwhatIdoIamconstantlythinkingofherWhenIwakeupsheisthefirstthingonmymindWhenIgotoschoolIcanonlyfocusonherWhenIgocomehomeIgoonthecomputersothatIcanlistentoherbeautifulvoiceWhenIgotosleepIdreamofherandIlivingahappylifetogetherSheismypridepassionandjoyIfsheweretocallmeOniichanIwouldprobablygetdiabetesfromhersweetnessanddieIwishfornothingbutherhappinessIfitwereforherIwouldgivemylifewithoutanysecondthoughtsWithouthermylifewouldservenopurposeIreallyloveKoishiKomeiji() {
-  int loal, cute, girl;
-  cin >> loal >> cute >> girl;
-  int cutegirl = min({loal,cute,girl}), girlcute = max({loal,cute,girl});
-  if (loal != cutegirl && loal != girlcute) cout << loal << '\n';
-  else if (cute != cutegirl && cute != girlcute) cout << cute << '\n';
-  else cout << girl << '\n';
+  int loal;
+  cin >> loal >> cute;
+  for (int cutegirl = 1; cutegirl <= loal; cutegirl++) {
+    cin >> girl[cutegirl].fi >> girl[cutegirl].se;
+  }
+  cout << bfs(1) << '\n';
 }
 
 int main() {

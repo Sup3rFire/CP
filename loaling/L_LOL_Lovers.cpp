@@ -19,35 +19,29 @@ using namespace std;
 const ld EPS = 1e-9;
 const ld PI = 3.141592653589793238462643383279502884197169399375105820974944;
 
-int n, k;
-int next(int x) {
-  if (x == n) return 1;
-  return x+1;
-}
-int prev(int x) {
-  if (x == 1) return n;
-  return x-1;
-}
-
 int main() {
   ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
   
-  cin >> n >> k;
-  int vo[n+1], va[n+1];
+  int n;
+  cin >> n;
+  int tl = 0, to = 0;
+  pii nya[n+1];
+  nya[0] = {0, 0};
   for (int i = 1; i <= n; i++) {
-    cout << "or " << i << ' ' << next(i) << endl;
-    cin >> vo[i];
-    cout << "and " << i << ' ' << next(i) << endl;
-    cin >> va[i];
+    char x;
+    cin >> x;
+    nya[i] = nya[i-1];
+    if (x == 'L') {tl++; nya[i].fi++;}
+    else {to++; nya[i].se++;}
+  }
+
+  int loal = -1;
+  for (int i = 1; i <= n; i++) {
+    if (to == nya[i].se && tl == nya[i].fi) break;
+    if (to-nya[i].se != nya[i].se && tl-nya[i].fi != nya[i].fi) loal = i;
   }
   
-  int a[n+1];
-
-  for (int i = 1; i <= n; i++) {
-    a[i] = (vo[prev(i)]&vo[i])&(va[prev(i)]|va[i]);
-  }
-
-  sort(a+1, a+n+1);
-  cout << "finish " << a[k];
+  cout << loal;
+  
   return 0;
 }

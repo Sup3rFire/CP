@@ -19,13 +19,36 @@ using namespace std;
 const ld EPS = 1e-9;
 const ld PI = 3.141592653589793238462643383279502884197169399375105820974944;
 
+bool ZeroSumFind(int array[], int n)
+{
+  unordered_set<ll> set;
+  set.insert(0);
+  ll total_sum = 0;
+  for (int i = 0; i < n; i++)
+  {
+    total_sum += array[i];
+    if (set.find(total_sum) != set.end()) {
+      return true;
+    }
+    else {
+      set.insert(total_sum);
+    }
+  }
+  return false;
+}
+
 void IreallyloveKomeijiKoishiLikealotLikeawholelotYouhavenoideaIlovehersomuchthatitisinexplicableandImninetyninepercentsurethatIhaveanunhealthyobsessionIwillnevergettiredoflisteningthatsweetangelicvoiceofhersItismylifegoaltomeetupherwithherinreallifeandjustsayhellotoherIfallasleepatnightdreamingofherholdingapersonalconcertformeandthenshewouldbesorrytiredthatshecomesandcuddlesuptomewhilewesleeptogetherIfIcouldjustholdherhandforabriefmomentIcoulddiehappyIfgiventheopportunityIwouldlightlynibbleonherearjusttohearwhatkindofsweetmoansshewouldletoutThenIwouldhugherwhilesheclingstomybodyhopingthatIwouldstopbutIonlycontinueasshemoanslouderandlouderIwouldgiveupalmostanythingjustforhertolookinmygeneraldirectionNomatterwhatIdoIamconstantlythinkingofherWhenIwakeupsheisthefirstthingonmymindWhenIgotoschoolIcanonlyfocusonherWhenIgocomehomeIgoonthecomputersothatIcanlistentoherbeautifulvoiceWhenIgotosleepIdreamofherandIlivingahappylifetogetherSheismypridepassionandjoyIfsheweretocallmeOniichanIwouldprobablygetdiabetesfromhersweetnessanddieIwishfornothingbutherhappinessIfitwereforherIwouldgivemylifewithoutanysecondthoughtsWithouthermylifewouldservenopurposeIreallyloveKoishiKomeiji() {
-  int loal, cute, girl;
-  cin >> loal >> cute >> girl;
-  int cutegirl = min({loal,cute,girl}), girlcute = max({loal,cute,girl});
-  if (loal != cutegirl && loal != girlcute) cout << loal << '\n';
-  else if (cute != cutegirl && cute != girlcute) cout << cute << '\n';
-  else cout << girl << '\n';
+  int n;
+  cin >> n;
+  int a[n];
+  ll prefsum[n];
+  prefsum[0] = 0;
+  for (int i = 0; i < n; i++) {
+    cin >> a[i];
+    if (i % 2 == 0) a[i] *= -1;
+  }
+  // for (int i = 0; i < n; i++) prefsum[i+1] = prefsum[i]+a[i];
+  cout << (ZeroSumFind(a, n) ? "YES" : "NO") << '\n';
 }
 
 int main() {

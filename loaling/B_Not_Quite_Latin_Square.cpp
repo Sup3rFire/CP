@@ -20,12 +20,23 @@ const ld EPS = 1e-9;
 const ld PI = 3.141592653589793238462643383279502884197169399375105820974944;
 
 void IreallyloveKomeijiKoishiLikealotLikeawholelotYouhavenoideaIlovehersomuchthatitisinexplicableandImninetyninepercentsurethatIhaveanunhealthyobsessionIwillnevergettiredoflisteningthatsweetangelicvoiceofhersItismylifegoaltomeetupherwithherinreallifeandjustsayhellotoherIfallasleepatnightdreamingofherholdingapersonalconcertformeandthenshewouldbesorrytiredthatshecomesandcuddlesuptomewhilewesleeptogetherIfIcouldjustholdherhandforabriefmomentIcoulddiehappyIfgiventheopportunityIwouldlightlynibbleonherearjusttohearwhatkindofsweetmoansshewouldletoutThenIwouldhugherwhilesheclingstomybodyhopingthatIwouldstopbutIonlycontinueasshemoanslouderandlouderIwouldgiveupalmostanythingjustforhertolookinmygeneraldirectionNomatterwhatIdoIamconstantlythinkingofherWhenIwakeupsheisthefirstthingonmymindWhenIgotoschoolIcanonlyfocusonherWhenIgocomehomeIgoonthecomputersothatIcanlistentoherbeautifulvoiceWhenIgotosleepIdreamofherandIlivingahappylifetogetherSheismypridepassionandjoyIfsheweretocallmeOniichanIwouldprobablygetdiabetesfromhersweetnessanddieIwishfornothingbutherhappinessIfitwereforherIwouldgivemylifewithoutanysecondthoughtsWithouthermylifewouldservenopurposeIreallyloveKoishiKomeiji() {
-  int loal, cute, girl;
-  cin >> loal >> cute >> girl;
-  int cutegirl = min({loal,cute,girl}), girlcute = max({loal,cute,girl});
-  if (loal != cutegirl && loal != girlcute) cout << loal << '\n';
-  else if (cute != cutegirl && cute != girlcute) cout << cute << '\n';
-  else cout << girl << '\n';
+  char a[3][3];
+  int x, y;
+  for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+      cin >> a[i][j];
+      if (a[i][j] == '?') {x = i; y = j;}
+    }
+  }
+  set<char> zz;
+  for (int j = 0; j < 3; j++) {
+    // cout << a[x][j];
+    zz.insert(a[x][j]);
+  }
+  if (zz.count('A')) {
+    if (zz.count('B')) cout << "C\n";
+    else cout << "B\n";
+  } else cout << "A\n";
 }
 
 int main() {

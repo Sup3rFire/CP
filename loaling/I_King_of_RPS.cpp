@@ -19,35 +19,29 @@ using namespace std;
 const ld EPS = 1e-9;
 const ld PI = 3.141592653589793238462643383279502884197169399375105820974944;
 
-int n, k;
-int next(int x) {
-  if (x == n) return 1;
-  return x+1;
-}
-int prev(int x) {
-  if (x == 1) return n;
-  return x-1;
-}
+mt19937 rng(time(NULL));
 
 int main() {
   ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
   
-  cin >> n >> k;
-  int vo[n+1], va[n+1];
-  for (int i = 1; i <= n; i++) {
-    cout << "or " << i << ' ' << next(i) << endl;
-    cin >> vo[i];
-    cout << "and " << i << ' ' << next(i) << endl;
-    cin >> va[i];
+  int wins = 0;
+  while (wins != 3) {
+    string ai;
+    int ans = rng() % 3;
+    if (ans == 0) {
+      cout << "Rock" << endl;
+      cin >> ai;
+      if (ai == "Scissor") wins++;
+    } else if (ans == 1) {
+      cout << "Paper" << endl;
+      cin >> ai;
+      if (ai == "Rock") wins++;
+    } else {
+      cout << "Scissor" << endl;
+      cin >> ai;
+      if (ai == "Paper") wins++;
+    }
   }
   
-  int a[n+1];
-
-  for (int i = 1; i <= n; i++) {
-    a[i] = (vo[prev(i)]&vo[i])&(va[prev(i)]|va[i]);
-  }
-
-  sort(a+1, a+n+1);
-  cout << "finish " << a[k];
   return 0;
 }

@@ -20,12 +20,16 @@ const ld EPS = 1e-9;
 const ld PI = 3.141592653589793238462643383279502884197169399375105820974944;
 
 void IreallyloveKomeijiKoishiLikealotLikeawholelotYouhavenoideaIlovehersomuchthatitisinexplicableandImninetyninepercentsurethatIhaveanunhealthyobsessionIwillnevergettiredoflisteningthatsweetangelicvoiceofhersItismylifegoaltomeetupherwithherinreallifeandjustsayhellotoherIfallasleepatnightdreamingofherholdingapersonalconcertformeandthenshewouldbesorrytiredthatshecomesandcuddlesuptomewhilewesleeptogetherIfIcouldjustholdherhandforabriefmomentIcoulddiehappyIfgiventheopportunityIwouldlightlynibbleonherearjusttohearwhatkindofsweetmoansshewouldletoutThenIwouldhugherwhilesheclingstomybodyhopingthatIwouldstopbutIonlycontinueasshemoanslouderandlouderIwouldgiveupalmostanythingjustforhertolookinmygeneraldirectionNomatterwhatIdoIamconstantlythinkingofherWhenIwakeupsheisthefirstthingonmymindWhenIgotoschoolIcanonlyfocusonherWhenIgocomehomeIgoonthecomputersothatIcanlistentoherbeautifulvoiceWhenIgotosleepIdreamofherandIlivingahappylifetogetherSheismypridepassionandjoyIfsheweretocallmeOniichanIwouldprobablygetdiabetesfromhersweetnessanddieIwishfornothingbutherhappinessIfitwereforherIwouldgivemylifewithoutanysecondthoughtsWithouthermylifewouldservenopurposeIreallyloveKoishiKomeiji() {
-  int loal, cute, girl;
-  cin >> loal >> cute >> girl;
-  int cutegirl = min({loal,cute,girl}), girlcute = max({loal,cute,girl});
-  if (loal != cutegirl && loal != girlcute) cout << loal << '\n';
-  else if (cute != cutegirl && cute != girlcute) cout << cute << '\n';
-  else cout << girl << '\n';
+  string loalgirl;
+  cin >> loalgirl;
+  string ans = "-1";
+  for (int cute = 1; cute < loalgirl.size(); cute++) {
+    string cutest = loalgirl.substr(0, cute);
+    string girl = loalgirl.substr(cute);
+    if (cutest[0] == '0' || girl[0] == '0') continue;
+    if (girl.size() > cutest.size() || (girl.size() == cutest.size() && girl > cutest)) ans = cutest + ' ' + girl;
+  }
+  cout << ans << '\n';
 }
 
 int main() {

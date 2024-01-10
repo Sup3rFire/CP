@@ -19,35 +19,41 @@ using namespace std;
 const ld EPS = 1e-9;
 const ld PI = 3.141592653589793238462643383279502884197169399375105820974944;
 
-int n, k;
-int next(int x) {
-  if (x == n) return 1;
-  return x+1;
-}
-int prev(int x) {
-  if (x == 1) return n;
-  return x-1;
-}
+int needed[52];
+int avb[52];
 
 int main() {
   ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
   
-  cin >> n >> k;
-  int vo[n+1], va[n+1];
-  for (int i = 1; i <= n; i++) {
-    cout << "or " << i << ' ' << next(i) << endl;
-    cin >> vo[i];
-    cout << "and " << i << ' ' << next(i) << endl;
-    cin >> va[i];
-  }
+  string a, b;
+  cin >> a >> b;
   
-  int a[n+1];
-
-  for (int i = 1; i <= n; i++) {
-    a[i] = (vo[prev(i)]&vo[i])&(va[prev(i)]|va[i]);
+  for (auto i : a) {
+    if (i <= 'Z') needed[i-'A']++;
+    else needed[i-'a'+26]++;
   }
 
-  sort(a+1, a+n+1);
-  cout << "finish " << a[k];
+  int correct = 0;
+
+  for (auto i : b) {
+    int id;
+    if (i <= 'Z') id = i-'A';
+    else id = i-'a'+26;
+    if (needed[id] > 0) {
+      needed[id]--;
+      correct++;
+    } else {
+      if (id >= 26) avb[id-26]++;
+      else avb[id+26]++; 
+    }
+  }
+
+  int c2 = 0;
+
+  for (int i = 0; i < 52; i++) {
+    c2 += min(avb[i], needed[i]);
+  }
+
+  cout << correct << ' ' << c2;
   return 0;
 }

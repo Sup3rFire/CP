@@ -19,35 +19,28 @@ using namespace std;
 const ld EPS = 1e-9;
 const ld PI = 3.141592653589793238462643383279502884197169399375105820974944;
 
-int n, k;
-int next(int x) {
-  if (x == n) return 1;
-  return x+1;
-}
-int prev(int x) {
-  if (x == 1) return n;
-  return x-1;
-}
-
 int main() {
   ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
   
-  cin >> n >> k;
-  int vo[n+1], va[n+1];
-  for (int i = 1; i <= n; i++) {
-    cout << "or " << i << ' ' << next(i) << endl;
-    cin >> vo[i];
-    cout << "and " << i << ' ' << next(i) << endl;
-    cin >> va[i];
-  }
-  
-  int a[n+1];
+  int n, l, r, x;
+  cin >> n >> l >> r >> x;
+  int a[n];
+  for (int i = 0; i < n; i++) cin >> a[i];
 
-  for (int i = 1; i <= n; i++) {
-    a[i] = (vo[prev(i)]&vo[i])&(va[prev(i)]|va[i]);
+  int valid = 0;
+  for (int mask = 0; mask < 1 << n; mask++) {
+    int total = 0;
+    int minval = 1e9;
+    int maxval = -1;
+    for (int i = 0; i < n; i++) {
+      if ((mask & 1 << i) != 0) {
+        maxval = max(maxval, a[i]);
+        minval = min(minval, a[i]);
+        total += a[i];
+      }
+    }
+    if (total >= l && total <= r && maxval-minval >= x) valid++;
   }
-
-  sort(a+1, a+n+1);
-  cout << "finish " << a[k];
+  cout << valid;
   return 0;
 }
