@@ -24,6 +24,7 @@
     "regex": "cpp",
     "valarray": "cpp",
     "format": "cpp",
-    "complex": "cpp"
+    "complex": "cpp",
+    "thread": "cpp"
   }
 }
