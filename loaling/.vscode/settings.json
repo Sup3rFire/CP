@@ -25,6 +25,7 @@
     "valarray": "cpp",
     "format": "cpp",
     "complex": "cpp",
-    "thread": "cpp"
+    "thread": "cpp",
+    "type_traits": "cpp"
   }
 }
