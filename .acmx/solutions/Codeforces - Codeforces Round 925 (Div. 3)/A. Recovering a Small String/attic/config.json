@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "C:\\Users\\flan_chan\\Documents\\CP\\.acmx\\solutions\\Codeforces - Codeforces Round 925 (Div. 3)\\A. Recovering a Small String\\solution.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "A. Recovering a Small String",
+      "group": "Codeforces - Codeforces Round 925 (Div. 3)",
+      "url": "https://codeforces.com/contest/1931/problem/A",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}
