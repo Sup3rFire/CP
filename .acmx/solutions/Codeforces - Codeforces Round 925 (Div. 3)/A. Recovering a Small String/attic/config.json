@@ -2,8 +2,12 @@
   "mainSolution": {
     "value": "C:\\Users\\flan_chan\\Documents\\CP\\.acmx\\solutions\\Codeforces - Codeforces Round 925 (Div. 3)\\A. Recovering a Small String\\solution.cpp"
   },
-  "bruteSolution": {},
-  "generator": {},
+  "bruteSolution": {
+    "value": "c:\\Users\\flan_chan\\Documents\\CP\\.acmx\\solutions\\Codeforces - Codeforces Round 925 (Div. 3)\\A. Recovering a Small String\\brute.cpp"
+  },
+  "generator": {
+    "value": "c:\\Users\\flan_chan\\Documents\\CP\\.acmx\\solutions\\Codeforces - Codeforces Round 925 (Div. 3)\\A. Recovering a Small String\\gen.py"
+  },
   "checker": {},
   "companionConfig": {
     "value": {
