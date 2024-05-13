@@ -1,0 +1,10 @@
+{
+  "files.associations": {
+    "*.ttrm": "json",
+    "*.css": "css",
+    "*.embeddedhtml": "html",
+    "iostream": "cpp",
+    "span": "cpp",
+    "type_traits": "cpp"
+  }
+}
