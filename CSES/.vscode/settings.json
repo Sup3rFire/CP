@@ -1,0 +1,7 @@
+{
+  "files.associations": {
+    "*.ttrm": "json",
+    "*.css": "css",
+    "iostream": "cpp"
+  }
+}
