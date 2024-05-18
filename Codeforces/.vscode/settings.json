@@ -3,7 +3,6 @@
     "*.ttrm": "json",
     "*.css": "css",
     "*.embeddedhtml": "html",
-    "*.embeddedhtml": "html",
     "iostream": "cpp",
     "random": "cpp",
     "array": "cpp",
