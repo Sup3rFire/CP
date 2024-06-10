@@ -1,0 +1,8 @@
+{
+  "files.associations": {
+    "*.ttrm": "json",
+    "*.css": "css",
+    "tuple": "cpp",
+    "*.tcc": "cpp"
+  }
+}
