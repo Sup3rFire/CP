@@ -5,6 +5,7 @@
     "*.embeddedhtml": "html",
     "iostream": "cpp",
     "span": "cpp",
-    "type_traits": "cpp"
+    "type_traits": "cpp",
+    "tuple": "cpp"
   }
 }
