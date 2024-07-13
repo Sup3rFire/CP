@@ -28,6 +28,13 @@
     "span": "cpp",
     "stacktrace": "cpp",
     "regex": "cpp",
-    "ostream": "cpp"
+    "ostream": "cpp",
+    "list": "cpp",
+    "string": "cpp",
+    "deque": "cpp",
+    "forward_list": "cpp",
+    "unordered_map": "cpp",
+    "unordered_set": "cpp",
+    "vector": "cpp"
   }
 }
