@@ -26,6 +26,7 @@
     "initializer_list": "cpp",
     "ranges": "cpp",
     "span": "cpp",
+    "type_traits": "cpp",
     "stacktrace": "cpp",
     "regex": "cpp",
     "ostream": "cpp",
