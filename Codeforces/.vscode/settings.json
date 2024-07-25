@@ -30,14 +30,12 @@
     "stacktrace": "cpp",
     "regex": "cpp",
     "ostream": "cpp",
-    "iomanip": "cpp",
-    "deque": "cpp",
-    "string": "cpp",
-    "vector": "cpp",
-    "forward_list": "cpp",
     "list": "cpp",
+    "string": "cpp",
+    "deque": "cpp",
+    "forward_list": "cpp",
     "unordered_map": "cpp",
     "unordered_set": "cpp",
-    "fstream": "cpp"
+    "vector": "cpp"
   }
 }
