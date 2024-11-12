@@ -1,1 +1,0 @@
-for(int i = 1 << k;i >>= 1;) for(int j = 1 << k; j --;) if(i & j) dp[j] += dp[j^i];
